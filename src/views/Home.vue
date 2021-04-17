@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{ message }}</h1>
+    <div v-for="city in cities"> 
+      <p>{{ city.city }} </p>
+      </div>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<style>
+</style>
 
+<script>
+import axios from "axios";
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  data: function () {
+    return {
+      message: "Welcome to Vue.js!",
+      cities: [],
+    };
+  },
+  created: function () {
+    axios.get("api/cities").then((response) => {
+      console.log("doing the cities index");
+      console.log(response.data);
+      this.cities = response.data;
+    });
+  },
+  methods: {},
+};
 </script>
+
