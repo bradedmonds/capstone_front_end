@@ -2,7 +2,7 @@
   <div class="home">
     <h1>{{ message }}</h1>
     <div v-for="city in cities"> 
-      <p>{{ city.city}} </p>
+      <router-link v-bind:to="`/${city.city}`">{{ city.city}} </router-link>
       </div>
   </div>
 </template>
