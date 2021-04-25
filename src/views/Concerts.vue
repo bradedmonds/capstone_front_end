@@ -7,7 +7,7 @@
       {{ concert.venue }}
       {{ concert.tickets }}
       </p>
-      <button v-on:click="allConcerts()"> See More </button>
+      <router-link v-bind:to="`${this.$route.params.id}/all`"> See More </router-link>
   </div>
 </template>
 
