@@ -1,9 +1,17 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <div v-for="city in cities"> 
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+       Select Your City
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+       <li v-for="city in cities"><router-link v-bind:to="`/${city.city}`" class="dropdown-item" href="/`${city.city}`">{{city.city}}</router-link></li>
+      </ul>
+    </div>
+    <!-- <div v-for="city in cities"> 
       <router-link v-bind:to="`/${city.city}`">{{ city.city}} </router-link>
-      </div>
+      </div> -->
   </div>
 </template>
 
@@ -15,7 +23,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Welcome to Vue.js!",
+      message: "LocalScene",
       cities: [],
     };
   },
