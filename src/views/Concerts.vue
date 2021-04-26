@@ -11,9 +11,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        
       </ul>
-    
     </div>
   </div>
 </nav>
@@ -22,7 +20,7 @@
       {{ concert.date }}
       {{ concert.name }}
       {{ concert.venue }}
-      {{ concert.tickets }}
+      <a v-bind:href="`${concert.tickets}`"> Tickets </a>
       </p>
       <router-link v-bind:to="`${this.$route.params.id}/all`"> See More </router-link>
   </div>
@@ -38,7 +36,7 @@ export default {
     return {
       message: `${this.$route.params.id} Concerts`,
       concerts: [],
-      xlConcerts: [],
+      largeConcerts: [],
       largeConcerts: [],
       sortedConcerts: [],
     };
@@ -56,18 +54,33 @@ export default {
       console.log(this.xlConcerts);
       this.xlConcerts = this.xlConcerts.sort((a, b) => (a.score > b.score ? -1 : 1));
       console.log(this.xlConcerts);
-      this.sortedConcerts.push(
-        this.largeConcerts[0],
-        this.largeConcerts[1],
-        this.largeConcerts[2],
-        this.largeConcerts[3],
-        this.largeConcerts[4],
-        this.xlConcerts[0],
-        this.xlConcerts[1],
-        this.xlConcerts[2],
-        this.xlConcerts[3],
-        this.xlConcerts[4]
-      );
+      if (this.xlConcerts.length > 5) {
+        this.sortedConcerts.push(
+          this.xlConcerts[0],
+          this.xlConcerts[1],
+          this.xlConcerts[2],
+          this.xlConcerts[3],
+          this.xlConcerts[4]
+        );
+      } else {
+        this.xlConcerts.forEach((concert) => {
+          this.sortedConcerts.push(concert);
+        });
+      }
+      if (this.largeConcerts.length > 5) {
+        this.sortedConcerts.push(
+          this.largeConcerts[0],
+          this.largeConcerts[1],
+          this.largeConcerts[2],
+          this.largeConcerts[3],
+          this.largeConcerts[4]
+        );
+      } else {
+        this.largeConcerts.forEach((concert) => {
+          this.sortedConcerts.push(concert);
+        });
+      }
+
       this.sortedConcerts.sort((a, b) => (a.date > b.date ? 1 : -1));
       console.log(this.sortedConcerts);
     });

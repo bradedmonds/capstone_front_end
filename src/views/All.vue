@@ -20,7 +20,7 @@
       {{ concert.date }}
       {{ concert.name }}
       {{ concert.venue }}
-      {{ concert.tickets }}
+      <a v-bind:href="`${concert.tickets}`"> Tickets </a>
       </p>
   </div>
 </template>
