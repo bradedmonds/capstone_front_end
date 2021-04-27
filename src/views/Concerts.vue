@@ -15,7 +15,7 @@
     </div>
   </div>
 </nav>
-    <h1>{{ message }}</h1>
+    <h2>{{ message }}</h2>
     <p v-for="concert in sortedConcerts">
       {{ concert.date }}
       {{ concert.name }}
@@ -27,6 +27,23 @@
 </template>
 
 <style>
+h2 {
+  margin: auto;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 5em;
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+
+p {
+  color: white;
+  font-size: 1.5em;
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
 </style>
 
 <script>

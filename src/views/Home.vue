@@ -16,6 +16,32 @@
 </template>
 
 <style>
+body {
+  background-image: url("~@/assets/background.jpg");
+  background-size: cover;
+  outline: 2px, black;
+}
+h1 {
+  margin: auto;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 5em;
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+.dropdown {
+  margin: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+btn btn-secondary dropdown-toggle {
+  color: white;
+}
 </style>
 
 <script>
